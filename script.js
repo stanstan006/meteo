@@ -21,21 +21,26 @@ async function getWeather(valVille) {
         }
 
         const data = await reponse.json()
-       console.log(data)
 
         const temperature = Math.round(data.main.temp)
 
-        const decription = data.weather[0].description
+        const description = data.weather[0].description
 
         const icon = data.weather[0].icon
 
         const details = [
-            `Feel like: ${Math.round(data.main.temp)}`
-            `Humidity: ${data.main.humidity}`
-            `Wind speed: ${data.wind.speed} m/s`
+            `Feel like: ${Math.round(data.main.temp)}`,
+            `Humidity: ${data.main.humidity}%`,
+            `Wind speed: ${data.wind.speed} m/s`,
         ]
-
+        wathEl.querySelector(".icon").innerHTML = `<img src="http://openweathermap.org/img/wn/${icon}.png" alt="">`;
+        wathEl.querySelector(".temperature").textContent = `${temperature}°C`;
+        wathEl.querySelector(".description").textContent = description;
+        wathEl.querySelector(".details").innerHTML = details.map((details)=>`<div>${details}</div>`).join("");
      } catch (error) {
-        
+        wathEl.querySelector(".icon").innerHTML = "";
+        wathEl.querySelector(".temperature").textContent = "";
+        wathEl.querySelector(".description").textContent = "Une erreur s'est produite. Veuillez réessayer plus tard, s'il vous plaît.";
+        wathEl.querySelector(".details").innerHTML = "";
      }
 } 

@@ -1,12 +1,12 @@
 body{
     margin: 0;
     font-family: "Montserrat", "Helvetica Neue",;
-    background-color: #f7f7f7;
+    background-color: salmon;
 }
 
 .container{
     background-color: #fff;
-    box-shadow: 0 0 20px rgba(0,0,0, 0.2);
+    box-shadow: 0 40px 20px rgba(0,0,0, 0.7);
     margin: 0 auto;
     margin-top: 50px;
     text-align: center;
@@ -72,11 +72,12 @@ form input[type="submit"]:hover{
     flex-wrap: wrap;
 }
 
-.details>div{
+.details > div{
     padding: 20px;
     background-color: #f1f1f1;
     margin: 10px;
     flex: 1;
+    border-radius: 5px;
     text-align: center;
     min-height: 45px;
 }
